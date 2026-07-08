@@ -1,0 +1,199 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Calculator</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <script src="script.js"></script>
+  </head>
+  <body>
+    <div
+      class="flex flex-col justify-center items-center h-screen bg-slate-100"
+      id="clac-body"
+    >
+      <div
+        class="bg-black m-3 p-3 rounded-[35px] shadow-xl justify-center items-center max-w-55 "
+      >
+        <div class="flex justify-center items-center mb-2 ">
+          <input
+            type="text"
+            id="display"
+            placeholder="0"
+            class="w-full h-15 rounded-[30px] px-3 pt-6 pb-6 text-right text-3xl font-light text-white focus:outline-none focus:border-amber-500 border border-neutral-500 bg-neutral-900 "
+            readonly
+             />
+        </div>
+
+
+
+        <div class="grid grid-cols-4 gap-1 max-w-55">
+
+          <button
+            type="button"
+            class="w-12 h-12 rounded-full bg-gray-500 text-white font-bold flex justify-center items-center hover:bg-neutral-500 place-self-center " 
+            value="clear"
+            onclick="handleClearClick()"
+            id="clear-btn"
+            data-key="Escape"
+          >
+            AC
+          </button>
+          <button
+            type="button"
+            class="w-12 h-12 rounded-full bg-gray-500 text-white font-bold flex justify-center items-center hover:bg-neutral-500 place-self-center grey-button"
+            onclick="backspace()"
+            data-key="Backspace"            
+          >
+            DEL
+          </button>
+          <button
+            type="button"
+            class="w-12 h-12 rounded-full bg-gray-500 text-white font-bold flex justify-center items-center hover:bg-neutral-500 place-self-center grey-button"
+            data-key="%"
+          >
+            %
+          </button>
+          <button
+            type="button"
+            class="w-12 h-12 rounded-full bg-amber-500 text-white font-bold flex justify-center items-center hover:bg-amber-600 place-self-center operator-button"
+            onclick="appendOperator('/')"
+            data-key="/"
+          >
+            /
+          </button>
+
+
+          <button
+            type="button"
+            class="w-12 h-12 rounded-full bg-neutral-900 text-white font-bold flex justify-center items-center hover:bg-neutral-800 place-self-center"
+            onclick="appendNumber('7')"
+            data-key="7"
+          >
+            7
+          </button>
+          <button
+            type="button"
+            class="w-12 h-12 rounded-full bg-neutral-900 text-white font-bold flex justify-center items-center hover:bg-neutral-800 place-self-center"
+            onclick="appendNumber('8')"
+            data-key="8"
+          >
+            8
+          </button>
+          <button
+            type="button"
+            class="w-12 h-12 rounded-full bg-neutral-900 text-white font-bold flex justify-center items-center hover:bg-neutral-800 place-self-center"
+            onclick="appendNumber('9')"
+            data-key="9"
+          >
+            9
+          </button>
+          <button
+            type="button"
+            class="w-12 h-12 rounded-full bg-amber-500 text-white font-bold flex justify-center items-center hover:bg-amber-600 place-self-center operator-button"
+            onclick="appendOperator('*')"
+            data-key="*"
+           
+          >
+            *
+          </button>
+
+
+          <button
+            type="button"
+            class="w-12 h-12 rounded-full bg-neutral-900 text-white font-bold flex justify-center items-center hover:bg-neutral-800 place-self-center"
+            onclick="appendNumber('4')"
+            data-key="4"
+          >
+            4
+          </button>
+          <button
+            type="button"
+            class="w-12 h-12 rounded-full bg-neutral-900 text-white font-bold flex justify-center items-center hover:bg-neutral-800 place-self-center"
+            onclick="appendNumber('5')"
+            data-key="5"
+          >
+            5
+          </button>
+          <button
+            type="button"
+            class="w-12 h-12 rounded-full bg-neutral-900 text-white font-bold flex justify-center items-center hover:bg-neutral-800 place-self-center"
+            onclick="appendNumber('6')"
+            data-key="6"
+          >
+            6
+          </button>
+          <button
+            type="button"
+            class="w-12 h-12 rounded-full bg-amber-500 text-white font-bold flex justify-center items-center hover:bg-amber-600 place-self-center operator-button"
+            onclick="appendOperator('+')"
+            data-key="+"
+          >
+            +
+          </button>
+
+
+          <button
+            type="button"
+            class="w-12 h-12 rounded-full bg-neutral-900 text-white font-bold flex justify-center items-center hover:bg-neutral-800 place-self-center"
+            onclick="appendNumber('1')"
+            data-key="1"
+          >
+            1
+          </button>
+          <button
+            type="button"
+            class="w-12 h-12 rounded-full bg-neutral-900 text-white font-bold flex justify-center items-center hover:bg-neutral-800 place-self-center"
+            onclick="appendNumber('2')"
+            data-key="2"
+          >
+            2
+          </button>
+          <button
+            type="button"
+            class="w-12 h-12 rounded-full bg-neutral-900 text-white font-bold flex justify-center items-center hover:bg-neutral-800 place-self-center"
+            onclick="appendNumber('3')"
+            data-key="3"
+          >
+            3
+          </button>
+          <button
+            type="button"
+            class="w-12 h-12 rounded-full bg-amber-500 text-white font-bold flex justify-center items-center hover:bg-amber-600 place-self-center operator-button"
+            onclick="appendOperator('-')"
+            data-key="-"
+          >
+            -
+          </button>
+
+
+          <button
+            type="button"
+            class="w-auto h-12 rounded-full bg-neutral-900 text-white font-bold flex justify-center items-center col-span-2 hover:bg-neutral-800"
+            onclick="appendNumber('0')"
+            data-key="0"
+          >
+            0
+          </button>
+          <button
+            type="button"
+            class="w-12 h-12 rounded-full bg-neutral-900 text-white font-bold flex justify-center items-center hover:bg-neutral-800 place-self-center"
+            onclick="appendNumber('.')"
+            data-key="."
+          >
+            .
+          </button>
+          <button
+            type="button"
+            class="w-12 h-12 rounded-full bg-amber-500 text-white font-bold flex justify-center items-center hover:bg-amber-600 place-self-center operator-button"
+            onclick="calculate()"
+            data-key="="
+  
+          >
+            =
+          </button>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
