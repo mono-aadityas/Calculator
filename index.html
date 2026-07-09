@@ -13,44 +13,45 @@
       id="clac-body"
     >
       <div
-        class="bg-black m-3 p-3 rounded-[35px] shadow-xl justify-center items-center max-w-55 "
+        class="bg-black m-3 p-3 rounded-[35px] shadow-xl justify-center items-center max-w-55"
       >
-        <div class="flex justify-center items-center mb-2 ">
+        <div class="flex justify-center items-center mb-2">
           <input
             type="text"
             id="display"
             placeholder="0"
-            class="w-full h-15 rounded-[30px] px-3 pt-6 pb-6 text-right text-3xl font-light text-white focus:outline-none focus:border-amber-500 border border-neutral-500 bg-neutral-900 "
+            class="w-full h-15 rounded-[30px] px-3 pt-6 pb-6 text-right text-3xl font-light text-white focus:outline-none focus:border-amber-500 border border-neutral-500 bg-neutral-900"
             readonly
-             />
+          />
         </div>
 
-
-
         <div class="grid grid-cols-4 gap-1 max-w-55">
-
           <button
             type="button"
-            class="w-12 h-12 rounded-full bg-gray-500 text-white font-bold flex justify-center items-center hover:bg-neutral-500 place-self-center " 
+            class="w-12 h-12 rounded-full bg-gray-500 text-white font-bold flex justify-center items-center hover:bg-gray-400 place-self-center"
             value="clear"
             onclick="handleClearClick()"
             id="clear-btn"
             data-key="Escape"
+            data-flashColor="!bg-gray-400"
           >
             AC
           </button>
           <button
             type="button"
-            class="w-12 h-12 rounded-full bg-gray-500 text-white font-bold flex justify-center items-center hover:bg-neutral-500 place-self-center grey-button"
+            class="w-12 h-12 rounded-full bg-gray-500 text-white font-bold flex justify-center items-center hover:bg-gray-400 place-self-center grey-button"
             onclick="backspace()"
-            data-key="Backspace"            
+            data-key="Backspace"
+            data-flashColor="!bg-gray-400"
           >
             DEL
           </button>
           <button
             type="button"
-            class="w-12 h-12 rounded-full bg-gray-500 text-white font-bold flex justify-center items-center hover:bg-neutral-500 place-self-center grey-button"
+            class="w-12 h-12 rounded-full bg-gray-500 text-white font-bold flex justify-center items-center hover:bg-gray-400 place-self-center grey-button"
             data-key="%"
+            data-flashColor="!bg-gray-400"
+            onclick="appendOperator('%')"
           >
             %
           </button>
@@ -59,16 +60,17 @@
             class="w-12 h-12 rounded-full bg-amber-500 text-white font-bold flex justify-center items-center hover:bg-amber-600 place-self-center operator-button"
             onclick="appendOperator('/')"
             data-key="/"
+            data-flashColor="!bg-amber-600"
           >
             /
           </button>
-
 
           <button
             type="button"
             class="w-12 h-12 rounded-full bg-neutral-900 text-white font-bold flex justify-center items-center hover:bg-neutral-800 place-self-center"
             onclick="appendNumber('7')"
             data-key="7"
+            data-flashColor="!bg-neutral-800"
           >
             7
           </button>
@@ -77,6 +79,7 @@
             class="w-12 h-12 rounded-full bg-neutral-900 text-white font-bold flex justify-center items-center hover:bg-neutral-800 place-self-center"
             onclick="appendNumber('8')"
             data-key="8"
+            data-flashColor="!bg-neutral-800"
           >
             8
           </button>
@@ -85,6 +88,7 @@
             class="w-12 h-12 rounded-full bg-neutral-900 text-white font-bold flex justify-center items-center hover:bg-neutral-800 place-self-center"
             onclick="appendNumber('9')"
             data-key="9"
+            data-flashColor="!bg-neutral-800"
           >
             9
           </button>
@@ -93,17 +97,17 @@
             class="w-12 h-12 rounded-full bg-amber-500 text-white font-bold flex justify-center items-center hover:bg-amber-600 place-self-center operator-button"
             onclick="appendOperator('*')"
             data-key="*"
-           
+            data-flashColor="!bg-amber-600"
           >
             *
           </button>
-
 
           <button
             type="button"
             class="w-12 h-12 rounded-full bg-neutral-900 text-white font-bold flex justify-center items-center hover:bg-neutral-800 place-self-center"
             onclick="appendNumber('4')"
             data-key="4"
+            data-flashColor="!bg-neutral-800"
           >
             4
           </button>
@@ -112,6 +116,7 @@
             class="w-12 h-12 rounded-full bg-neutral-900 text-white font-bold flex justify-center items-center hover:bg-neutral-800 place-self-center"
             onclick="appendNumber('5')"
             data-key="5"
+            data-flashColor="!bg-neutral-800"
           >
             5
           </button>
@@ -120,6 +125,7 @@
             class="w-12 h-12 rounded-full bg-neutral-900 text-white font-bold flex justify-center items-center hover:bg-neutral-800 place-self-center"
             onclick="appendNumber('6')"
             data-key="6"
+            data-flashColor="!bg-neutral-800"
           >
             6
           </button>
@@ -128,16 +134,17 @@
             class="w-12 h-12 rounded-full bg-amber-500 text-white font-bold flex justify-center items-center hover:bg-amber-600 place-self-center operator-button"
             onclick="appendOperator('+')"
             data-key="+"
+            data-flashColor="!bg-amber-600"
           >
             +
           </button>
-
 
           <button
             type="button"
             class="w-12 h-12 rounded-full bg-neutral-900 text-white font-bold flex justify-center items-center hover:bg-neutral-800 place-self-center"
             onclick="appendNumber('1')"
             data-key="1"
+            data-flashColor="!bg-neutral-800"
           >
             1
           </button>
@@ -146,6 +153,7 @@
             class="w-12 h-12 rounded-full bg-neutral-900 text-white font-bold flex justify-center items-center hover:bg-neutral-800 place-self-center"
             onclick="appendNumber('2')"
             data-key="2"
+            data-flashColor="!bg-neutral-800"
           >
             2
           </button>
@@ -154,6 +162,7 @@
             class="w-12 h-12 rounded-full bg-neutral-900 text-white font-bold flex justify-center items-center hover:bg-neutral-800 place-self-center"
             onclick="appendNumber('3')"
             data-key="3"
+            data-flashColor="!bg-neutral-800"
           >
             3
           </button>
@@ -162,16 +171,17 @@
             class="w-12 h-12 rounded-full bg-amber-500 text-white font-bold flex justify-center items-center hover:bg-amber-600 place-self-center operator-button"
             onclick="appendOperator('-')"
             data-key="-"
+            data-flashColor="!bg-amber-600"
           >
             -
           </button>
-
 
           <button
             type="button"
             class="w-auto h-12 rounded-full bg-neutral-900 text-white font-bold flex justify-center items-center col-span-2 hover:bg-neutral-800"
             onclick="appendNumber('0')"
             data-key="0"
+            data-flashColor="!bg-neutral-800"
           >
             0
           </button>
@@ -180,6 +190,7 @@
             class="w-12 h-12 rounded-full bg-neutral-900 text-white font-bold flex justify-center items-center hover:bg-neutral-800 place-self-center"
             onclick="appendNumber('.')"
             data-key="."
+            data-flashColor="!bg-neutral-800"
           >
             .
           </button>
@@ -187,8 +198,8 @@
             type="button"
             class="w-12 h-12 rounded-full bg-amber-500 text-white font-bold flex justify-center items-center hover:bg-amber-600 place-self-center operator-button"
             onclick="calculate()"
-            data-key="="
-  
+            data-key="'=' || 'Enter'"
+            data-flashColor="!bg-amber-600"
           >
             =
           </button>
