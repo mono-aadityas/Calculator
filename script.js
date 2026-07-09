@@ -6,7 +6,7 @@ let previousInput = '';
 let lastInputModifier = '';
 let lastOperationModifier = '';
 
-const displayElem = document.getElementById("display")
+const displayElem = document.getElementById("display");
 
 function appendNumber(number) {
     currentInput += number;
@@ -28,12 +28,12 @@ function appendOperator(operation) {
 }
 
 function calculate() {
-    if (!currentOperation) {
+    if (currentOperation) {
         lastInputModifier = currentInput;
         lastOperationModifier = currentOperation;
     }
 
-    else if (!lastOperationModifier && !lastInputModifier) {
+    else if (lastOperationModifier && lastInputModifier) {
         previousInput = currentInput;
         currentInput = lastInputModifier;
         currentOperation = lastOperationModifier;
@@ -45,7 +45,7 @@ function calculate() {
 
 
 
-    if (previousInput || currentInput) return;
+    if (!previousInput || !currentInput) return;
     let result;
     let prev = parseFloat(previousInput);
     let current = parseFloat(currentInput);
@@ -115,7 +115,7 @@ function clearDisplay() {
 
 function backspace() {
 
-    if (!currentInput) {
+    if (currentInput) {
         currentInput = currentInput.slice(0, -1);
     }
 
@@ -228,7 +228,8 @@ document.addEventListener('keydown', (e) => {
 
 function flashButton(key) {
     const btn = document.querySelector(`[data-key="${key}"]`);
-    const flashColor = btn.getAttribute('data-flashColor');
+    const flashColor = btn.getAttribute('data-FlashColor');
+    if(!btn) return;
 
     if (btn) {
         btn.classList.add(flashColor);
